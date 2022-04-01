@@ -1,5 +1,6 @@
+
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, CanDeactivate } from '@angular/router';
 import { interval, Observable } from 'rxjs';
 
 import { Question } from 'src/app/model/question.model';
@@ -110,14 +111,10 @@ export class QuestionsComponent implements OnInit {
     this.startTimer()
 
 }
-  //if accidentally navigate back confirmation will show
-  canDeactivate():  boolean | Observable<boolean> | Promise<boolean>{
-    if (this.currentQuestion < this.questionList.length-1) {
-        return confirm('Do you want to Quit Exam?');
-    }
-    else{
-      return true;
-    }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/signup']);
   }
 
   // popup results when quiz done

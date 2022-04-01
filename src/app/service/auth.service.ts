@@ -21,7 +21,6 @@ export class AuthService {
   }
 
   logout(){
-      localStorage.removeItem('User');
-      this.router.navigate(['/signup']);
+       localStorage.clear();
   }
 }

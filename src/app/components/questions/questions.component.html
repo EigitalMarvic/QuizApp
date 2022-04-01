@@ -1,3 +1,17 @@
+<nav class="navbar navbar-light bg-light">
+
+  <a class="navbar-brand" routerLink="['quesitons']">
+    <img class="me-3" src="/assets/img/logo.png" alt="" width="50" height="50" class="ms-3 me-3 d-inline-block align-center">
+   <strong>CODING HUB</strong>
+
+  </a>
+  <ul class="nav justify-content-end" *ngIf="this.authService.isAuthenticated()">
+    <li class="nav-item">
+      <a (click)="logout()" type="button" class="btn btn-sm-primary"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
+    </li>
+  </ul>
+</nav>
+
 <div class="row">
   <!-- diplay User -->
   <div class="d-flex align-items-center p-3 my-3 text-dark bg-purple rounded shadow-sm">
@@ -32,7 +46,7 @@
     <ul class="list-group" *ngFor="let options of questionList[currentQuestion].answerOptions">
       <label [for]="options.answerId">
       <li class="list-group-item text-start justify-content-between mb-1"
-      [ngStyle]="{backgroundColor:answerSeletected===true && options.correct ===true? 'green':'transparent' }">
+      [ngStyle]="{backgroundColor:answerSeletected===true && options.correct ===true? '#0BDA51':'transparent' }">
         <input type="radio"
         class=" form-check-input me-3"
         name="options"
