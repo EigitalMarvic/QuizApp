@@ -1,1 +1,52 @@
-<p>sign-up works!</p>
+<div class="container">
+  <ng-container *ngIf="!isEnterContestReady">
+      <div class="p-5">
+          <h1 class="display-3">Welcome!</h1>
+          <p class="lead">You can test your Bootstrap skills with Coding Hub.</p>
+          <hr class="my-2">
+          <h4>The Test</h4>
+          <p>The test contains 5 questions and there is 15 Seconds time limit for each question.</p>
+          <p>The test is not official, it's just a nice way to see how much you know, or don't know, about Bootstrap.</p>
+          <h4>Count Your Score</h4>
+          <p>You will get 100 points for each correct answer. At the end of the Quiz, your total score will be displayed.Maximum score is 500 points.</p>
+
+              <form #signUpForm="ngForm" (ngSubmit)="onSubmit(signUpForm)" autocomplete="off" >
+              <!-- Input Email -->
+                <div class="form-group">
+                  <label for="emailAddress">Email address</label>
+                  <input
+                  type="email"
+                  class="form-control"
+                  id="emailAddress"
+                  name="emailAddress"
+                  ngModel
+                  #emailAddress="ngModel"
+                  required
+                  email/>
+              </div>
+                  <!-- email Address error/validation handlers -->
+                  <small *ngIf="emailAddress?.errors && emailAddress.errors?.['required'] && emailAddress.touched">
+                  Email Address is Required</small>
+
+                  <small *ngIf="emailAddress?.errors && emailAddress.errors?.['email'] && emailAddress.touched">
+                  Email Should be Valid</small>
+
+                  <!-- button Signup -->
+                  <p class="lead">
+                      <button type="submit" class="btn btn-primary mt-3"
+                      [disabled]="!signUpForm.valid">Signup</button>
+                  </p>
+          </form>
+        </div>
+    </ng-container>
+
+      <ng-container *ngIf="isEnterContestReady">
+        <div class="card mt-5">
+          <h5 class="card-header">Get Ready!</h5>
+          <div class="card-body">
+            <h5 class="card-title">Press Start when you're ready</h5>
+            <a class="btn btn-primary" routerLink="/questions">Enter Contest</a>
+          </div>
+        </div>
+      </ng-container>
+  </div>
