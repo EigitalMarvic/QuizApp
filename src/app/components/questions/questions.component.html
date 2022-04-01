@@ -1,1 +1,66 @@
-<p>questions works!</p>
+<div class="row">
+  <!-- diplay User -->
+  <div class="d-flex align-items-center p-3 my-3 text-dark bg-purple rounded shadow-sm">
+    <img class="me-3" src="/assets/img/bootstrap-logo.png" alt="" width="48" height="50">
+    <div class="lh-1 ">
+      <h1 class="h6 mb-0 text-dark lh-1">Bootstrap Quiz</h1>
+      <small>Welcome {{authService.user}}</small>
+    </div>
+
+  </div>
+
+  <!-- user time and accomplishments -->
+    <div class="d-flex align-items-center p-1 my-1 text-dark bg-purple rounded shadow-sm text-center">
+        <!-- 1 Flag for Correct answer -->
+      <div class="col-sm-4 col-md-4 ms-auto">
+        <h4>
+          <i class="fa fa-flag" aria-hidden="true" style="color: green;" *ngFor="let item of [].constructor(correctAnswers)"></i>
+        </h4>
+      </div>
+      <!-- Number of Questions -->
+      <div class="col-sm-4 col-md-4 ms-auto">
+        <h4>{{currentQuestion +1}} of {{questionList.length}}</h4>
+      </div>
+      <!-- timer for Questions -->
+      <div class="col-sm-4 col-md-4 ms-auto">
+        <h4>{{timeLeft}} sec <i class="fa fa-clock-o" aria-hidden="true"></i></h4>
+      </div>
+    </div>
+    <!-- Current Question -->
+    <h6 class="pt-3 pb-2 ps-0">{{questionList[currentQuestion].questionText}} </h6>
+    <!-- Current Options -->
+    <ul class="list-group" *ngFor="let options of questionList[currentQuestion].answerOptions">
+      <label [for]="options.answerId">
+      <li class="list-group-item text-start justify-content-between mb-1"
+      [ngStyle]="{backgroundColor:answerSeletected===true && options.correct ===true? 'green':'transparent' }">
+        <input type="radio"
+        class=" form-check-input me-3"
+        name="options"
+        [id]="options.answerId"
+        [value]="options.text"
+        [disabled]="answerSeletected"
+        (change)="submitAnswer(options)">
+        {{options.text}}
+
+      </li>
+     </label>
+    </ul>
+  </div>
+      <!-- alert when wrong and correct -->
+  <div class="row">
+    <div class="containe ps-0 ms-0 mt-4">
+      <ng-container *ngIf="answerSeletected">
+        <div *ngIf="isCorrectAnswer" class="alert alert-success text-center" role="alert">
+         Correct Answer!
+        </div>
+        <div *ngIf="!isCorrectAnswer && timeLeft !==0" class="alert alert-danger text-center" role="alert">
+         Wrong Answer!
+        </div>
+        <div *ngIf="timeLeft===0" class="alert alert-danger text-center" role="alert">
+          Time over
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+
