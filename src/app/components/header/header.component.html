@@ -1,1 +1,13 @@
-<p>header works!</p>
+<nav class="navbar navbar-light bg-light">
+
+  <a class="navbar-brand" routerLink="['quesitons']">
+    <img class="me-3" src="/assets/img/logo.png" alt="" width="50" height="50" class="ms-3 me-3 d-inline-block align-center">
+   <strong>CODING HUB</strong>
+
+  </a>
+  <ul class="nav justify-content-end" *ngIf="this.authService.isAuthenticated()">
+    <li class="nav-item">
+      <a (click)="authService.logout()" type="button" class="btn btn-sm-primary">Logout</a>
+    </li>
+  </ul>
+</nav>
