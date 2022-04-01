@@ -1,0 +1,61 @@
+
+{ "questions": [
+      {
+      "ID": 1,
+      "questionText": "Which class provides a responsive fixed width container?",
+      "answerOptions":
+      [
+
+          {"answerId":"A1","text": ".container-fluid","correct": false},
+          {"answerId":"A2","text": ".container-fixed","correct": false},
+          {"answerId":"A3","text": ".container","correct": true},
+          {"answerId":"A4","text": "-container","correct": false}
+      ],
+      "explanation": ".container"
+    },
+    {
+      "ID": 2,
+      "questionText": "Which class provides a full width container, spanning the entire width of the viewport?",
+      "answerOptions": [
+          {"answerId":"A1", "text": ".container-fluid", "correct": true },
+          {"answerId":"A2", "text": ".container-fixed","correct": false },
+          {"answerId":"A3", "text": ".container","correct": false },
+          {"answerId":"A4", "text": ".container-float","correct": false}
+      ],
+      "explanation": ".container-fluid"
+    },
+    {
+      "ID": 3,
+      "questionText": "The Bootstrap grid system is based on how many columns?",
+      "answerOptions": [
+          {"answerId":"A1", "text": "6.","correct": false},
+          {"answerId":"A2", "text": "12","correct": true},
+          {"answerId":"A3", "text": "11","correct": false},
+          {"answerId":"A4", "text": "9","correct": false }
+      ],
+      "explanation": "12"
+    },
+    {
+      "ID": 4,
+      "questionText": " Which class adds zebra-stripes to a table?",
+      "answerOptions": [
+          {"answerId":"A1", "text": ".table-striped","correct": true },
+          {"answerId":"A2", "text": ".table-bordered","correct": false },
+          {"answerId":"A3", "text": ".table-zebra","correct": false},
+          {"answerId":"A4", "text": ".even and .odd","correct": false }
+      ],
+      "explanation": ".table-striped"
+    },
+    {
+      "ID": 5,
+      "questionText": "Which class shapes an image to a circle?",
+      "answerOptions": [
+          {"answerId":"A1", "text": ".img-circle", "correct": true},
+          {"answerId":"A2", "text": ".img-rounded","correct": false },
+          {"answerId":"A3", "text": ".img-round","correct": false},
+          {"answerId":"A4", "text": ".img-thumbnail","correct": false }
+      ],
+      "explanation": ".img-circle"
+    }
+  ]
+}
